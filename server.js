@@ -7,16 +7,20 @@ const knex = require('knex');
 const axios = require('axios');
 
 
+// const db = knex({
+//   // Enter your own database information here based on what you created
+//   client: 'pg',
+//   connection: {
+//     host : 'dpg-crrvs00gph6c738mr1n0-a',
+//     user : 'face_recognition_database_7i7g_user',
+//     password : '660wB0Iy460GdHLZmwEtN7gZp6o7jQBF',
+//     database : 'face_recognition_database_7i7g'
+//   }
+// });
+
 const db = knex({
-  // Enter your own database information here based on what you created
-  client: 'pg',
-  connection: {
-    host : 'dpg-crrvs00gph6c738mr1n0-a',
-    user : 'face_recognition_database_7i7g_user',
-    password : '660wB0Iy460GdHLZmwEtN7gZp6o7jQBF',
-    database : 'face_recognition_database_7i7g'
-  }
-});
+  process.env.DB_URL
+})
 
 const app = express();
 
