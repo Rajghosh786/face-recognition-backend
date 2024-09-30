@@ -145,7 +145,44 @@ app.put('/image', (req, res) => {
   })
   .catch(err => res.status(400).json('unable to get entries'))
 })
+setInterval(app.post('/clarifai', async (req, res) => {
+  const { imageUrl } = req.body;
+  const PAT = process.env.PAT;
+  const USER_ID = process.env.USER_ID;
+  const APP_ID = process.env.APP_ID;
 
+  const requestOptions = {
+    method: 'POST',
+    url: `https://api.clarifai.com/v2/models/face-detection/outputs`,
+    headers: {
+      Accept: 'application/json',
+      Authorization: `Key ${PAT}`,
+    },
+    data: {
+      user_app_id: {
+        user_id: USER_ID,
+        app_id: APP_ID,
+      },
+      inputs: [
+        {
+          data: {
+            image: {
+              url: imageUrl,
+            },
+          },
+        },
+      ],
+    },
+  };
+
+  try {
+    const response = await axios(requestOptions);
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error calling Clarifai API:', error);
+    res.status(500).json('Error processing request');
+  }
+}), 30000);
 
 app.listen(process.env.PORT || 3000, ()=> {
   console.log(`Server is running on port ${process.env.PORT}`);
