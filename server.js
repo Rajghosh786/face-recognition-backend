@@ -155,16 +155,16 @@ app.put('/image', (req, res) => {
 })
 
 
-// setInterval(function reloadWebsite() {
-//     axios.get('https://face-recognition-backend-5lyf.onrender.com')
-//       .then(response => {
-//         console.log(response);
-//         console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
-//       })
-//       .catch(error => {
-//         console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
-//       });
-//   }, 30000);
+setInterval(function reloadWebsite() {
+    axios.get('https://face-recognition-backend-5lyf.onrender.com')
+      .then(response => {
+        console.log(response);
+        console.log(`Reloaded at ${new Date().toISOString()}: Status Code ${response.status}`);
+      })
+      .catch(error => {
+        console.error(`Error reloading at ${new Date().toISOString()}:`, error.message);
+      });
+  }, 30000);
 
 
 
