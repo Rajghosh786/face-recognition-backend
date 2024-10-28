@@ -19,10 +19,10 @@ const db = knex({
     // user : process.env.USERNAME,
     // password : process.env.PASSWORD,
     // database : process.env.DATABASE,
-    host : 'dpg-csfssh5ds78s7391ag3g-a',
-    user : 'face_recognition_database_28_10_2024_lrtt_user',
-    password : 'VlVi5Tlt2d14CJstjWQzTB4rJdwU1Wtt',
-    database : 'face_recognition_database_28_10_2024_lrtt'
+    host : 'dpg-csfu5hrv2p9s73fjmmj0-a',
+    user : 'face_recognition_database_9c1l_user',
+    password : 'Uker6IRlCpF9RQvaNawaspqtL9WBBI60',
+    database : 'face_recognition_database_9c1l'
   }
 });
 
